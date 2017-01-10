@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D63006221E216C900091C170 /* mano.png in Resources */ = {isa = PBXBuildFile; fileRef = D630061F1E216C900091C170 /* mano.png */; };
+		D63006231E216C900091C170 /* piedra.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D63006201E216C900091C170 /* piedra.PNG */; };
+		D63006241E216C900091C170 /* tijeras.png in Resources */ = {isa = PBXBuildFile; fileRef = D63006211E216C900091C170 /* tijeras.png */; };
 		D635F2A51E205D6B0071508E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635F2A41E205D6B0071508E /* AppDelegate.swift */; };
 		D635F2A71E205D6B0071508E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D635F2A61E205D6B0071508E /* GameScene.sks */; };
 		D635F2A91E205D6B0071508E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D635F2A81E205D6B0071508E /* Actions.sks */; };
@@ -15,9 +18,13 @@
 		D635F2B01E205D6B0071508E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D635F2AE1E205D6B0071508E /* Main.storyboard */; };
 		D635F2B21E205D6B0071508E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D635F2B11E205D6B0071508E /* Assets.xcassets */; };
 		D635F2B51E205D6B0071508E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D635F2B31E205D6B0071508E /* LaunchScreen.storyboard */; };
+		D635F2BD1E2065980071508E /* fondo.png in Resources */ = {isa = PBXBuildFile; fileRef = D635F2BC1E2065980071508E /* fondo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D630061F1E216C900091C170 /* mano.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mano.png; sourceTree = "<group>"; };
+		D63006201E216C900091C170 /* piedra.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piedra.PNG; sourceTree = "<group>"; };
+		D63006211E216C900091C170 /* tijeras.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tijeras.png; sourceTree = "<group>"; };
 		D635F2A11E205D6B0071508E /* PiedraPapelTijera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiedraPapelTijera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D635F2A41E205D6B0071508E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D635F2A61E205D6B0071508E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -28,6 +35,7 @@
 		D635F2B11E205D6B0071508E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D635F2B41E205D6B0071508E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D635F2B61E205D6B0071508E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D635F2BC1E2065980071508E /* fondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +52,7 @@
 		D635F2981E205D6B0071508E = {
 			isa = PBXGroup;
 			children = (
-				D635F2A31E205D6B0071508E /* PiedraPapelTijera */,
+				D635F2A31E205D6B0071508E /* fond */,
 				D635F2A21E205D6B0071508E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,9 +65,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D635F2A31E205D6B0071508E /* PiedraPapelTijera */ = {
+		D635F2A31E205D6B0071508E /* fond */ = {
 			isa = PBXGroup;
 			children = (
+				D635F2BE1E2065A80071508E /* Imagenes */,
 				D635F2A41E205D6B0071508E /* AppDelegate.swift */,
 				D635F2A61E205D6B0071508E /* GameScene.sks */,
 				D635F2A81E205D6B0071508E /* Actions.sks */,
@@ -70,7 +79,19 @@
 				D635F2B31E205D6B0071508E /* LaunchScreen.storyboard */,
 				D635F2B61E205D6B0071508E /* Info.plist */,
 			);
+			name = fond;
 			path = PiedraPapelTijera;
+			sourceTree = "<group>";
+		};
+		D635F2BE1E2065A80071508E /* Imagenes */ = {
+			isa = PBXGroup;
+			children = (
+				D635F2BC1E2065980071508E /* fondo.png */,
+				D630061F1E216C900091C170 /* mano.png */,
+				D63006201E216C900091C170 /* piedra.PNG */,
+				D63006211E216C900091C170 /* tijeras.png */,
+			);
+			name = Imagenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,10 +153,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63006221E216C900091C170 /* mano.png in Resources */,
 				D635F2B01E205D6B0071508E /* Main.storyboard in Resources */,
+				D63006241E216C900091C170 /* tijeras.png in Resources */,
 				D635F2A71E205D6B0071508E /* GameScene.sks in Resources */,
+				D635F2BD1E2065980071508E /* fondo.png in Resources */,
 				D635F2B21E205D6B0071508E /* Assets.xcassets in Resources */,
 				D635F2B51E205D6B0071508E /* LaunchScreen.storyboard in Resources */,
+				D63006231E216C900091C170 /* piedra.PNG in Resources */,
 				D635F2A91E205D6B0071508E /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +336,7 @@
 				D635F2BB1E205D6B0071508E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -121,25 +121,33 @@ class GameScene: SKScene {
     func comprobarJuego()  {
         //1 Piedra, 2 Papel , 3 tijera
         var mensaje :String = ""
+        labelInit = SKLabelNode(fontNamed: "Noteworthy-Light")
         if(self.elegidoUser == self.eledigoMaquina){
             mensaje =  "Empate!"
+            labelInit.fontColor = UIColor.gray
         }else if(self.elegidoUser == 1 && self.eledigoMaquina == 2){
             mensaje = "Perdiste =("
+            labelInit.fontColor = UIColor.red
         }else if(self.elegidoUser == 1 && self.eledigoMaquina == 3){
             mensaje = "Ganaste =)"
+            labelInit.fontColor = UIColor.green
         }else if(self.elegidoUser == 2 && self.eledigoMaquina == 1){
             mensaje = "Ganaste =)"
+            labelInit.fontColor = UIColor.green
         }else if(self.elegidoUser == 2 && self.eledigoMaquina == 3){
             mensaje = "Perdiste =("
+            labelInit.fontColor = UIColor.red
         }else if(self.elegidoUser == 3 && self.eledigoMaquina == 1){
             mensaje = "Perdiste =("
+            labelInit.fontColor = UIColor.red
         }else if(self.elegidoUser == 3 && self.eledigoMaquina == 2){
             mensaje = "Ganaste =)"
+            labelInit.fontColor = UIColor.green
         }
-        labelInit = SKLabelNode(fontNamed: "Noteworthy-Light")
+        
         labelInit.text = mensaje
-        labelInit.fontSize = 50
-        labelInit.fontColor = UIColor.orange
+        labelInit.fontSize = 60
+        
         labelInit.position = CGPoint(x: 0, y: 0)
         self.addChild(labelInit)
 
@@ -248,8 +256,8 @@ class GameScene: SKScene {
     }
     
     private func getSecuencia() -> SKAction {
-        let showBig = SKAction.scale(to: 1.8, duration: 0.2)
-        let showSmall = SKAction.scale(to: 0.1, duration: 0.2)
+        let showBig = SKAction.scale(to: 1.8, duration: 0.1)
+        let showSmall = SKAction.scale(to: 0.1, duration: 0.1)
         let shadow = SKAction.fadeOut(withDuration: 0.01)
         let secuencia = SKAction.sequence([showBig, showSmall, shadow])
         return secuencia

@@ -16,6 +16,11 @@ class GameScene: SKScene {
     
     var fondo : SKSpriteNode!
     
+    var labelScoreUser :SKLabelNode!
+    var labelScoreMaquina : SKLabelNode!
+    var scoreUser:Int = 0
+    var scoremaquina:Int = 0
+    
     var labelInit: SKLabelNode!
     var labelPiedra: SKLabelNode!
     var labelPapel: SKLabelNode!
@@ -38,6 +43,41 @@ class GameScene: SKScene {
     private func initGame(){
         self.addFondo()
         self.addLabel()
+    }
+    
+    private func addScore(user: Bool, machine: Bool){
+        
+        let delNodo = SKAction.removeFromParent()
+        let showBig = SKAction.scale(to: 1.8, duration: 0.1)
+        let secuencia = SKAction.sequence([showBig, delNodo])
+        if(self.labelScoreUser != nil && user){
+            self.labelScoreUser.run(secuencia)
+        }
+        if(self.labelScoreMaquina != nil && machine){
+            self.labelScoreMaquina.run(secuencia)
+        }
+        
+        if(user){
+            labelScoreUser = SKLabelNode(fontNamed: "Noteworthy-Light")
+            labelScoreUser.text = "Score = \(self.scoreUser)"
+            labelScoreUser.fontSize = 30
+            labelScoreUser.fontColor = UIColor.white
+            print(self.frame.minX)
+            print(self.frame.maxY)
+            labelScoreUser.position = CGPoint(x: self.frame.minX + 100, y:   self.frame.maxY / 4)
+            self.addChild(labelScoreUser)
+        }
+        if(machine){
+            labelScoreMaquina = SKLabelNode(fontNamed: "Noteworthy-Light")
+            labelScoreMaquina.text = "Score = \(self.scoremaquina)"
+            labelScoreMaquina.fontSize = 30
+            labelScoreMaquina.fontColor = UIColor.white
+            print(self.frame.minX)
+            print(self.frame.maxY)
+            labelScoreMaquina.position = CGPoint(x: self.frame.maxX - 100, y:   self.frame.maxY / 4)
+            self.addChild(labelScoreMaquina)
+        }
+    
     }
     
     private func addFondo(){
@@ -121,30 +161,44 @@ class GameScene: SKScene {
     func comprobarJuego()  {
         //1 Piedra, 2 Papel , 3 tijera
         var mensaje :String = ""
+        var userGana :Bool = false
+        var machineGana : Bool = false
         labelInit = SKLabelNode(fontNamed: "Noteworthy-Light")
         if(self.elegidoUser == self.eledigoMaquina){
             mensaje =  "Empate!"
             labelInit.fontColor = UIColor.gray
         }else if(self.elegidoUser == 1 && self.eledigoMaquina == 2){
             mensaje = "Perdiste =("
+            self.scoremaquina = self.scoremaquina + 1
+            machineGana = true
             labelInit.fontColor = UIColor.red
         }else if(self.elegidoUser == 1 && self.eledigoMaquina == 3){
             mensaje = "Ganaste =)"
+            self.scoreUser = self.scoreUser + 1
             labelInit.fontColor = UIColor.green
+            userGana = true
         }else if(self.elegidoUser == 2 && self.eledigoMaquina == 1){
             mensaje = "Ganaste =)"
+            self.scoreUser = self.scoreUser + 1
             labelInit.fontColor = UIColor.green
+            userGana = true
         }else if(self.elegidoUser == 2 && self.eledigoMaquina == 3){
             mensaje = "Perdiste =("
+             self.scoremaquina = self.scoremaquina + 1
             labelInit.fontColor = UIColor.red
+            machineGana = true
         }else if(self.elegidoUser == 3 && self.eledigoMaquina == 1){
             mensaje = "Perdiste =("
+             self.scoremaquina = self.scoremaquina + 1
             labelInit.fontColor = UIColor.red
+            machineGana = true
         }else if(self.elegidoUser == 3 && self.eledigoMaquina == 2){
             mensaje = "Ganaste =)"
+            self.scoreUser = self.scoreUser + 1
             labelInit.fontColor = UIColor.green
+            userGana = true
         }
-        
+        self.addScore(user: userGana, machine: machineGana)
         labelInit.text = mensaje
         labelInit.fontSize = 60
         
@@ -241,15 +295,12 @@ class GameScene: SKScene {
         var posicionNode : CGPoint!
         posicionNode = CGPoint(x: (self.frame.maxX - 70), y:0)
         if(eleccionMaquina == 1){
-            print("piedra")
             self.eledigoMaquina = 1
             self.mostrarMaquina(imageNodo: "piedra", posicion: posicionNode)
         }else if(eleccionMaquina == 2){
-            print("papel")
             self.eledigoMaquina = 2
             self.mostrarMaquina(imageNodo: "mano", posicion: posicionNode)
         }else{
-            print("tijera")
             self.eledigoMaquina = 3
          self.mostrarMaquina(imageNodo: "tijeras", posicion: posicionNode)
         }

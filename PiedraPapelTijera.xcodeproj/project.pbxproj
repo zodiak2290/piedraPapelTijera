@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D610F3C11E2553A800C5BEFA /* ganar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D610F3BF1E2553A800C5BEFA /* ganar.mp3 */; };
+		D610F3C81E255AB900C5BEFA /* latigo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D610F3C71E255AB900C5BEFA /* latigo.mp3 */; };
+		D610F3CA1E255B9B00C5BEFA /* latigazo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D610F3C91E255B9B00C5BEFA /* latigazo.mp3 */; };
+		D610F3CC1E255C2700C5BEFA /* lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D610F3CB1E255C2700C5BEFA /* lost.mp3 */; };
 		D63006221E216C900091C170 /* mano.png in Resources */ = {isa = PBXBuildFile; fileRef = D630061F1E216C900091C170 /* mano.png */; };
 		D63006231E216C900091C170 /* piedra.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D63006201E216C900091C170 /* piedra.PNG */; };
 		D63006241E216C900091C170 /* tijeras.png in Resources */ = {isa = PBXBuildFile; fileRef = D63006211E216C900091C170 /* tijeras.png */; };
@@ -22,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D610F3BF1E2553A800C5BEFA /* ganar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ganar.mp3; sourceTree = "<group>"; };
+		D610F3C71E255AB900C5BEFA /* latigo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = latigo.mp3; sourceTree = "<group>"; };
+		D610F3C91E255B9B00C5BEFA /* latigazo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = latigazo.mp3; sourceTree = "<group>"; };
+		D610F3CB1E255C2700C5BEFA /* lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lost.mp3; sourceTree = "<group>"; };
 		D630061F1E216C900091C170 /* mano.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mano.png; sourceTree = "<group>"; };
 		D63006201E216C900091C170 /* piedra.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piedra.PNG; sourceTree = "<group>"; };
 		D63006211E216C900091C170 /* tijeras.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tijeras.png; sourceTree = "<group>"; };
@@ -90,6 +98,10 @@
 				D630061F1E216C900091C170 /* mano.png */,
 				D63006201E216C900091C170 /* piedra.PNG */,
 				D63006211E216C900091C170 /* tijeras.png */,
+				D610F3CB1E255C2700C5BEFA /* lost.mp3 */,
+				D610F3BF1E2553A800C5BEFA /* ganar.mp3 */,
+				D610F3C71E255AB900C5BEFA /* latigo.mp3 */,
+				D610F3C91E255B9B00C5BEFA /* latigazo.mp3 */,
 			);
 			name = Imagenes;
 			sourceTree = "<group>";
@@ -155,11 +167,15 @@
 			files = (
 				D63006221E216C900091C170 /* mano.png in Resources */,
 				D635F2B01E205D6B0071508E /* Main.storyboard in Resources */,
+				D610F3C11E2553A800C5BEFA /* ganar.mp3 in Resources */,
 				D63006241E216C900091C170 /* tijeras.png in Resources */,
 				D635F2A71E205D6B0071508E /* GameScene.sks in Resources */,
 				D635F2BD1E2065980071508E /* fondo.png in Resources */,
 				D635F2B21E205D6B0071508E /* Assets.xcassets in Resources */,
 				D635F2B51E205D6B0071508E /* LaunchScreen.storyboard in Resources */,
+				D610F3CC1E255C2700C5BEFA /* lost.mp3 in Resources */,
+				D610F3CA1E255B9B00C5BEFA /* latigazo.mp3 in Resources */,
+				D610F3C81E255AB900C5BEFA /* latigo.mp3 in Resources */,
 				D63006231E216C900091C170 /* piedra.PNG in Resources */,
 				D635F2A91E205D6B0071508E /* Actions.sks in Resources */,
 			);

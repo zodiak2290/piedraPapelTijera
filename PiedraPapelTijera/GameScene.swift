@@ -11,6 +11,11 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var soundWin: SKAction!
+    var soundFall: SKAction!
+    var sounIntro: SKAction!
+    var sounIntroD : SKAction!
+    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
@@ -43,6 +48,10 @@ class GameScene: SKScene {
     private func initGame(){
         self.addFondo()
         self.addLabel()
+        soundWin = SKAction.playSoundFileNamed("ganar.mp3", waitForCompletion: true)
+        soundFall = SKAction.playSoundFileNamed("lost.mp3", waitForCompletion: true)
+        sounIntro = SKAction.playSoundFileNamed("latigo.mp3", waitForCompletion: true)
+        sounIntroD = SKAction.playSoundFileNamed("latigazo.mp3", waitForCompletion: true)
     }
     
     private func addScore(user: Bool, machine: Bool){
@@ -62,8 +71,6 @@ class GameScene: SKScene {
             labelScoreUser.text = "Score = \(self.scoreUser)"
             labelScoreUser.fontSize = 30
             labelScoreUser.fontColor = UIColor.white
-            print(self.frame.minX)
-            print(self.frame.maxY)
             labelScoreUser.position = CGPoint(x: self.frame.minX + 100, y:   self.frame.maxY / 4)
             self.addChild(labelScoreUser)
         }
@@ -151,6 +158,8 @@ class GameScene: SKScene {
             }
         }else{
             self.resetGame()
+            let secuencia = SKAction.sequence([sounIntro, sounIntro, sounIntroD])
+            self.run(secuencia)
             labelInit.run(getSecuencia(), completion: {
                 self.showLabelPiedra()
             })
@@ -172,31 +181,37 @@ class GameScene: SKScene {
             self.scoremaquina = self.scoremaquina + 1
             machineGana = true
             labelInit.fontColor = UIColor.red
+            self.run(soundFall)
         }else if(self.elegidoUser == 1 && self.eledigoMaquina == 3){
             mensaje = "Ganaste =)"
             self.scoreUser = self.scoreUser + 1
             labelInit.fontColor = UIColor.green
             userGana = true
+            self.run(soundWin)
         }else if(self.elegidoUser == 2 && self.eledigoMaquina == 1){
             mensaje = "Ganaste =)"
             self.scoreUser = self.scoreUser + 1
             labelInit.fontColor = UIColor.green
             userGana = true
+            self.run(soundWin)
         }else if(self.elegidoUser == 2 && self.eledigoMaquina == 3){
             mensaje = "Perdiste =("
              self.scoremaquina = self.scoremaquina + 1
             labelInit.fontColor = UIColor.red
             machineGana = true
+            self.run(soundFall)
         }else if(self.elegidoUser == 3 && self.eledigoMaquina == 1){
             mensaje = "Perdiste =("
              self.scoremaquina = self.scoremaquina + 1
             labelInit.fontColor = UIColor.red
             machineGana = true
+            self.run(soundFall)
         }else if(self.elegidoUser == 3 && self.eledigoMaquina == 2){
             mensaje = "Ganaste =)"
             self.scoreUser = self.scoreUser + 1
             labelInit.fontColor = UIColor.green
             userGana = true
+            self.run(soundWin)
         }
         self.addScore(user: userGana, machine: machineGana)
         labelInit.text = mensaje
@@ -307,8 +322,8 @@ class GameScene: SKScene {
     }
     
     private func getSecuencia() -> SKAction {
-        let showBig = SKAction.scale(to: 1.8, duration: 0.1)
-        let showSmall = SKAction.scale(to: 0.1, duration: 0.1)
+        let showBig = SKAction.scale(to: 1.8, duration: 0.01)
+        let showSmall = SKAction.scale(to: 0.1, duration: 0.01)
         let shadow = SKAction.fadeOut(withDuration: 0.01)
         let secuencia = SKAction.sequence([showBig, showSmall, shadow])
         return secuencia
